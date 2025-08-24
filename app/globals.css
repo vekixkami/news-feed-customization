@@ -1,0 +1,163 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Newspaper-style monochromatic color scheme */
+  --background: #ffffff; /* Pure white background */
+  --foreground: #1f2937; /* Dark gray for main text */
+  --card: #f8fafc; /* Light gray for article cards */
+  --card-foreground: #374151; /* Medium gray for card text */
+  --popover: #ffffff; /* White for popovers */
+  --popover-foreground: #374151; /* Gray for popover text */
+  --primary: #6366f1; /* Purple accent for CTAs */
+  --primary-foreground: #ffffff; /* White text on primary */
+  --secondary: #f8fafc; /* Light gray for secondary elements */
+  --secondary-foreground: #1f2937; /* Dark text on secondary */
+  --muted: #e5e7eb; /* Muted gray */
+  --muted-foreground: #374151; /* Text for muted elements */
+  --accent: #6366f1; /* Purple accent for highlights */
+  --accent-foreground: #ffffff; /* White text on accent */
+  --destructive: #ef4444; /* Red for errors */
+  --destructive-foreground: #ffffff; /* White text on destructive */
+  --border: #d1d5db; /* Light gray borders */
+  --input: #f9fafb; /* Very light gray for inputs */
+  --ring: rgba(99, 102, 241, 0.5); /* Purple ring with opacity */
+  --chart-1: #d1fae5;
+  --chart-2: #e0f2fe;
+  --chart-3: #f9a8d4;
+  --chart-4: #fcd34d;
+  --chart-5: #f9c74f;
+  --radius: 0.5rem;
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #374151;
+  --sidebar-primary: #ffffff;
+  --sidebar-primary-foreground: #374151;
+  --sidebar-accent: #6366f1;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #d1d5db;
+  --sidebar-ring: rgba(99, 102, 241, 0.5);
+  --font-open-sans: "Open Sans", sans-serif;
+  --font-playfair: "Playfair Display", serif;
+}
+
+.dark {
+  --background: #0f172a; /* Very dark blue-gray */
+  --foreground: #f1f5f9; /* Light gray text */
+  --card: #1e293b; /* Dark card background */
+  --card-foreground: #e2e8f0; /* Light card text */
+  --popover: #1e293b; /* Dark popover */
+  --popover-foreground: #e2e8f0; /* Light popover text */
+  --primary: #6366f1; /* Same purple accent */
+  --primary-foreground: #ffffff; /* White text */
+  --secondary: #334155; /* Medium dark gray */
+  --secondary-foreground: #f1f5f9; /* Light text */
+  --muted: #475569; /* Muted dark gray */
+  --muted-foreground: #94a3b8; /* Lighter muted text */
+  --accent: #6366f1; /* Same purple accent */
+  --accent-foreground: #ffffff; /* White text */
+  --destructive: #ef4444; /* Same red */
+  --destructive-foreground: #ffffff; /* White text */
+  --border: #334155; /* Dark border */
+  --input: #1e293b; /* Dark input */
+  --ring: rgba(99, 102, 241, 0.5); /* Same purple ring */
+  --chart-1: #065f46;
+  --chart-2: #0c4a6e;
+  --chart-3: #be185d;
+  --chart-4: #a16207;
+  --chart-5: #a16207;
+  --sidebar: #1e293b;
+  --sidebar-foreground: #e2e8f0;
+  --sidebar-primary: #6366f1;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #334155;
+  --sidebar-accent-foreground: #f1f5f9;
+  --sidebar-border: #334155;
+  --sidebar-ring: rgba(99, 102, 241, 0.5);
+  --font-open-sans: "Open Sans", sans-serif;
+  --font-playfair: "Playfair Display", serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: var(--font-open-sans);
+  --font-serif: var(--font-playfair);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Adding newspaper-style typography and layout classes */
+.newspaper-header {
+  font-family: var(--font-playfair);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.newspaper-body {
+  font-family: var(--font-open-sans);
+  line-height: 1.7;
+}
+
+.newspaper-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.03) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+.newspaper-divider {
+  border-top: 2px solid var(--border);
+  position: relative;
+}
+
+.newspaper-divider::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--foreground);
+  opacity: 0.1;
+}

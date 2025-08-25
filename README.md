@@ -1,3 +1,3 @@
-[v0-news-feed-customization.vercel.app]
+![v0-news-feed-customization.vercel.app]
 
 
